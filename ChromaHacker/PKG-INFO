@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: chromahacker
+Version: 0.1.4
+Summary: 
+Author: FaunuX
+Author-email: judahpspiegel@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: opencv-python (>=4.7.0.72,<5.0.0.0)
+Requires-Dist: pillow (>=9.5.0,<10.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+

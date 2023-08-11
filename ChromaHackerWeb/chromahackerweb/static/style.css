@@ -1,0 +1,167 @@
+/* Body styles */
+body {
+	background-color: #111;
+	color: #fff;
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 20px;
+}
+
+/* Title styles */
+h1 {
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 30px;
+	text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Optional styling for active button (you may have this in your CSS already) */
+.tab button.active {
+	background-color: #00cccc;
+}
+
+
+/* Form styles */
+#custom_form, #premade_form {
+	max-width: 600px;
+	margin: 0 auto;
+	display: none;
+}
+
+.tab {
+	display: flex;
+	justify-content: space-between;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.tab button {
+	width: 50%;
+	box-sizing: border-box; /* Include padding and border in the width calculation */
+	padding: 10px; /* Adjust padding as needed */
+	border: none;
+	background-color: #f1f1f1; /* Set background color for buttons */
+}
+
+input[type="url"],
+input[type="text"] {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 2px solid #00ffcc;
+	border-radius: 5px;
+	background-color: #222;
+	color: #fff;
+}
+input[type="submit"], #addButton {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+input[type="submit"],
+.tab button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #00ffcc;
+	color: #111;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+	background-color: #33ffdd;
+}
+
+/* Checkbox styles */
+#accuracy {
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+	cursor: pointer;
+}
+
+#accuracy::before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	border: 2px solid #00ffcc;
+	border-radius: 3px;
+	background-color: #111;
+}
+
+#accuracy::after {
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 2px;
+	background-color: #00ffcc;
+	opacity: 0;
+}
+
+#accuracy:hover::after {
+	opacity: 0.8;
+}
+
+#accuracy:checked::after {
+	opacity: 1;
+}
+
+/* Add Input button styles */
+#addButton {
+	display: inline-block;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ff0066;
+	color: #00ffcc;
+	font-weight: bold;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	transition: background-color 0.3s ease;
+}
+
+#addButton:hover {
+	background-color: #ff0088;
+}
+
+/* Neon glow effect */
+button:hover,
+input[type="submit"]:hover,
+#addButton:hover {
+	text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+}
+
+/* Container styles */
+div {
+	position: relative;
+}
+
+/* Close button 'X' styles */
+button[id^="button"] {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	width: 25px;
+	height: 25px;
+	background-color: #ff0066;
+	border: 2px solid #00ffcc;
+	border-radius: 50%;
+	color: #00ffcc;
+	font-weight: bold;
+}
+
+/* Additional glow effect for close buttons */
+button[id^="button"]:hover {
+	box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+}

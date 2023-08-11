@@ -1,0 +1,31 @@
+<head>
+	<title>ChromaHacker</title>
+	<link rel="stylesheet" href={{ url_for('static', filename='style.css') }}  />
+</head>
+<body>
+	<div class="tab">
+		<button class="tablinks" onclick="openForm(event, 'custom_form')">Custom Colors</button>
+		<button class="tablinks" onclick="openForm(event, 'premade_form')">Use Colorscheme</button>
+	</div>
+	<br>
+	<form id="custom_form" action="/palettize_custom", target="_blank">
+		<input name="url" type="url">
+		<input type="submit">
+		<input type="checkbox" id="accuracy" name="accuracy">
+		<label for="accuracy"> Quick and dirty? </label>
+		<button id="addButton" type="button">Add Input</button>
+		<br>
+		<br>
+	</form>
+	<form id="premade_form" action="/palettize_premade", target="_blank">
+		<input name="url" type="url">
+		<input type="submit">
+		<input type="checkbox" id="accuracy" name="accuracy">
+		<label for="accuracy"> Quick and dirty? </label>
+		<br>
+		<br>
+		<input name="palette" type="text">
+	</form>
+	<script src={{ url_for('static', filename='script.js') }}>
+	</script>
+</body>
