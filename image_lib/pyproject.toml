@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "chromahacker"
+version = "0.3.5"
+description = ""
+authors = ["FaunuX <judahpspiegel@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+opencv-python = "^4.7.0.72"
+pillow = "^9.5.0"
+requests = "^2.31.0"
+matplotlib = "^3.7.2"
+
+[tool.poetry.scripts]
+test = "tests.main:run"
+colorscheme = "chromahacker.colorschemes.colorschemes:run"
+identity = "chromahacker.id_clut:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
