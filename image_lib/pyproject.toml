@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chromahacker"
-version = "0.3.5"
+version = "0.3.6"
 description = ""
 authors = ["FaunuX <judahpspiegel@gmail.com>"]
 readme = "README.md"
