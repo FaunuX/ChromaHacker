@@ -61,7 +61,7 @@ const CustomColors = ({onChange}) => {
 	}
 
 	return (
-			<ControlGroup className="flex flex-col">
+			<ControlGroup className="flex flex-col bp5-dark">
 			<Button icon="plus" onClick={ addColorSelect } /> {colors.map(col => { 
 				const id = col.id.toString()
 				return (

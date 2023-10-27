@@ -12,25 +12,31 @@ const App = () => {
 	const [customColors, setCustomColors] = useState([])
 	const [imageUrl, setImageUrl] = useState("")
 	const [url, setUrl] = useState("")
+	const [outputUrl, setOutputUrl] = useState("")
 
 	const submitForm = (event) => {
-		console.log({formOption: formOption, colorscheme: colorscheme, customColors: customColors, imageUrl: imageUrl})
 		let fetchUrl = ""
-		console.log(imageUrl)
 		if (formOption === "use_colorscheme") {
-			fetchUrl = "http://localhost:5000/palettize_premade?url=" + url + "&palette=" + colorscheme
-			fetch(fetchUrl, {})
+			fetchUrl = "/palettize_premade?url=" + url + "&palette=" + colorscheme
 		} else if (formOption === "custom_colors") {
-			fetchUrl = "/palettize_custom"
+			let customColorsString = ""
+			let i = 0
+			customColors.forEach((color) => {
+				customColorsString += "&arg" + i.toString() + "=" + color.value
+				i += 1
+			})
+			fetchUrl = "/palettize_custom?&url=" + url + customColorsString.replace(/#/g, "%23")
 		} else if (formOption === "from_image") {
-			fetchUrl = "/palettize_from_image"
+			fetchUrl = "/palettize_from_image?url=" + url + "&url_colors=" + imageUrl
 		}
+		setOutputUrl(fetchUrl)
 	}
 
 	return (
-			<Card interactive={ false } elevation={Elevation.TWO} className="flex justify-center h-full m-16">
+			<>
+			<Card interactive={ false } elevation={Elevation.ZERO} className="flex justify-center h-full m-16 rounded-xl bg-stone-800/40 blurry">
 			<FormGroup large={ true } className="w-1/2 min-w-max" >
-			<Card interactive={ true } elevation={Elevation.TWO} className="">
+			<Card interactive={ true } elevation={Elevation.ZERO} className="rounded-xl text-stone-50 bg-stone-900/40 blurry">
 			<RadioGroup 
 				onChange={ (event) => setFormOption(event.currentTarget.value) }
 				selectedValue={ formOption }
@@ -44,7 +50,7 @@ const App = () => {
 					type="search" 
 					placeholder="Search?" 
 					leftIcon="search"
-					className="ml-8"
+					className="ml-8 bp5-dark"
 					onChange={ (event) => setColorscheme(event.target.value) }
 				/>
 			</Collapse>
@@ -65,7 +71,7 @@ const App = () => {
 					name="color_image_url" 
 					type="url" 
 					placeholder="Enter URL for your Image"
-					className="ml-8"
+					className="ml-8 bp5-dark"
 					onChange={ (event) => setImageUrl(event.target.value) }
 				/>
 			</Collapse>
@@ -78,11 +84,19 @@ const App = () => {
 				type="url" 
 				placeholder="Enter the URL for the image you wish to recolor..." 
 				onChange={ (event) => setUrl(event.target.value) }
+				className="bp5-dark"
 			/>
 			<Divider className="invisible"/>
+			<div className="bp5-dark">
 			<Button onClick={ submitForm }> Submit </Button>
+			</div>
 			</FormGroup>
 			</Card>
+			<center>
+			<img className="w-1/2" src={outputUrl} />
+			<br />
+			</center>
+			</>
 	       )
 }
 
