@@ -160,13 +160,13 @@ files = [
 
 [[package]]
 name = "chromahacker"
-version = "0.3.4"
+version = "0.3.6"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "chromahacker-0.3.4-py3-none-any.whl", hash = "sha256:2585c3419b2cb6f033333dd38b05ad027c4c1b4dfa71d1405d34596acff4909a"},
-    {file = "chromahacker-0.3.4.tar.gz", hash = "sha256:806787f85fb32f5de06798d9da7c09bc10e2ee6bbaddb82f2962d3c2247ee12e"},
+    {file = "chromahacker-0.3.6-py3-none-any.whl", hash = "sha256:db433a209a02c79cf7279d14e35d5062bc5806380ddce2688b59238148d8a6f1"},
+    {file = "chromahacker-0.3.6.tar.gz", hash = "sha256:d275404e87306cf7f4b45e67ee50fb691fe4fead310346dda380fddcda725578"},
 ]
 
 [package.dependencies]
@@ -1543,4 +1543,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.5"
-content-hash = "31db54b853a4554e9a9d125c9c62b93a51d177d1d1fc202768a7dacb605c6567"
+content-hash = "7c921c293be2f8da1a7f6707d67dd0011b0d3abb1bcb2e21a6e8ca314d748655"

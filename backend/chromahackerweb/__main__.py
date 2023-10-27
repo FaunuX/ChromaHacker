@@ -53,6 +53,15 @@ app = Flask(__name__)
 
 OUTPUT = "png"
 
+def convert_colors(color_tuple):
+    return '#' + hex_value(hex(color_tuple[0])[2:]) + hex_value(hex(color_tuple[1])[2:]) + hex_value(hex(color_tuple[2])[2:])
+
+def hex_value(val):
+  if len(val) == 1:
+    return '0' + val
+  else:
+    return val
+
 @app.route('/palettize_custom', methods=['GET'])
 def palettize_custom_endpoint():
     url = request.args.to_dict()['url']
@@ -77,24 +86,17 @@ def palettize_premade_endpoint():
 def palettize_from_image_endpoint():
     url = request.args.to_dict()['url']
     url_colors = request.args.to_dict()['url_colors']
-    color_image_array = Image.open(requests.get(url_colors, stream=True).raw).to_array()
-    args = model.predict(color_image_array)
+    color_image_array = np.array(Image.open(requests.get(url_colors, stream=True).raw).resize((64, 64))).reshape(1, 64, 64, 3)
+    pre_args = np.rint(model.predict(color_image_array)).astype(np.uint8)[0]
+    args = [convert_colors(color) for color in list(pre_args)]
     return palettize_function(url, *args)
 
 def palettize_function(url, *args):
-    print(args)
     palettized_array = np.rint(palettize(url, *args)).astype(np.uint8)
     buffer = io.BytesIO()
     Image.fromarray(palettized_array).save(buffer, OUTPUT)
     buffer.seek(0)
-    data = buffer.read()
-    data = base64.b64encode(data).decode()
-    return f'<img src="data:image/png;base64,{data}">'
-
-    # with open("ok.png", "wb") as f:
-        # print(b.read())
-        # f.write(b.read())
-    # return send_file(b, mimetype='image/' + OUTPUT)
+    return send_file(buffer, mimetype='image/' + OUTPUT)
 
 @app.route('/colorschemes/<query>')
 def colorschemes_search(query):

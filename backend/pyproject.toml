@@ -8,9 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "3.11.5"
 flask = "^2.3.2"
-chromahacker = "^0.3.1"
+chromahacker = "^0.3.6"
 keras = "^2.14.0"
 tensorflow = "^2.14.0"
+requests = "^2.31.0"
 
 [tool.poetry.scripts]
 chromahackerweb = "chromahackerweb.__main__:run"

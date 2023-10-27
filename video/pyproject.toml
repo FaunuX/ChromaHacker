@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "video"
+version = "0.1.0"
+description = ""
+authors = ["FaunuX <judahpspiegel@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11, <3.13"
+matplotlib = "^3.8.0"
+numpy = "^1.26.1"
+pyqt6 = "^6.5.3"
+seaborn = "^0.13.0"
+chromahacker = "^0.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
