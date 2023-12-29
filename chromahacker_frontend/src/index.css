@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import "normalize.css";
 @import "@blueprintjs/core/lib/css/blueprint.css";
 @import "@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
 	background-image: url(chromahacker_app_bg.png);
@@ -12,5 +12,5 @@ html {
 }
 
 .blurry {
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(16px);
 }
